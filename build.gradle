@@ -24,6 +24,7 @@ dependencies {
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
     implementation 'org.postgresql:postgresql:42.7.4'
     compileOnly 'org.projectlombok:lombok'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
