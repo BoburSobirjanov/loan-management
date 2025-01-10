@@ -10,6 +10,7 @@
 <head>
     <title>salom dunyo</title>
 </head>
+<a href="${pageContext.request.contextPath}/home">Home</a>
 <body>
 
 </body>

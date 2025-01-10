@@ -7,14 +7,13 @@
         <servlet-class>uz.com.brb.controller.HomeController</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/views/dispatcher-servlet.xmlet.xml</param-value>
+            <param-value>/WEB-INF/views/dispatcher-servlet.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>dispatcher-servlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
