@@ -1,4 +1,4 @@
-package uz.com.brb.model.entity;
+package uz.com.brb.model;
 
 import lombok.*;
 
@@ -8,13 +8,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Accounts {
+public class Clients {
 
     private Integer id;
-    private Integer clientId;
-    private String accountType;
-    private Long balance;
-    private Integer interestRate;
+    private Integer userId;
+    private String name;
+    private String email;
+    private String number;
     private final LocalDateTime createdAt = LocalDateTime.now();
-
 }
