@@ -23,8 +23,9 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public UserEntity createUser(@RequestBody UserEntity userEntity) {
-        return userService.createUser(userEntity);
+    public String createUser(@RequestBody UserEntity userEntity) {
+        boolean user = userService.createUser(userEntity);
+        return user ? "Saved!" : "Wrong during save!";
     }
 
     @PutMapping("/{id}")

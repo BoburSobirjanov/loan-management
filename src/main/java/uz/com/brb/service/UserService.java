@@ -1,6 +1,5 @@
 package uz.com.brb.service;
 
-import uz.com.brb.exception.DataHasAlreadyExistsException;
 import uz.com.brb.model.UserEntity;
 
 import java.util.ArrayList;
@@ -22,16 +21,16 @@ public class UserService {
                 .orElse(null);
     }
 
-    public UserEntity createUser(UserEntity userEntity) {
+    public boolean createUser(UserEntity userEntity) {
         for (UserEntity user: users) {
             if (user.getUsername().equals(userEntity.getUsername())){
-                throw new DataHasAlreadyExistsException("data has!");
+                return false;
             }
         }
         userEntity.setRole(userEntity.getRole().toUpperCase());
         userEntity.setId(idCounter++);
         users.add(userEntity);
-        return userEntity;
+        return true;
     }
 
     public UserEntity updateUser(int id, UserEntity userEntity) {
