@@ -1,19 +1,16 @@
 package uz.com.brb.controller;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uz.com.brb.model.entity.UserEntity;
+import uz.com.brb.model.UserEntity;
 import uz.com.brb.service.UserService;
 
 import java.util.List;
 
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("/api/users")
-public class UserController {
 
-    private final  UserService userService;
+@RestController
+@RequestMapping("/users")
+public class UserController {
+    private final UserService userService = new UserService();
 
     @GetMapping
     public List<UserEntity> getAllUsers() {
@@ -21,40 +18,23 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserEntity> getUserById(@PathVariable int id) {
-        UserEntity user = userService.getUserById(id);
-        if (user != null) {
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public UserEntity getUserById(@PathVariable int id) {
+        return userService.getUserById(id);
     }
 
-    @PostMapping
-    public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
-        userService.saveUser(user);
-        return ResponseEntity.ok(user);
+    @PostMapping("/save")
+    public UserEntity createUser(@RequestBody UserEntity userEntity) {
+        return userService.createUser(userEntity);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserEntity> updateUser(@PathVariable int id, @RequestBody UserEntity updatedUser) {
-        UserEntity existingUser = userService.getUserById(id);
-        if (existingUser != null) {
-            updatedUser.setId(id);
-            userService.saveUser(updatedUser);
-            return ResponseEntity.ok(updatedUser);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public UserEntity updateUser(@PathVariable int id, @RequestBody UserEntity user) {
+        return userService.updateUser(id, user);
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable int id) {
-        UserEntity existingUser = userService.getUserById(id);
-        if (existingUser != null) {
-            userService.deleteUser(id);
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public String deleteUser(@PathVariable int id) {
+        boolean deleted = userService.deleteUser(id);
+        return deleted ? "UserEntity deleted successfully" : "UserEntity not found";
     }
 }

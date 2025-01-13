@@ -1,4 +1,4 @@
-package uz.com.brb.model.entity;
+package uz.com.brb.model;
 
 import lombok.*;
 

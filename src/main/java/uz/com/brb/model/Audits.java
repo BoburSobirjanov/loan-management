@@ -1,4 +1,4 @@
-package uz.com.brb.model.entity;
+package uz.com.brb.model;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Audits {
 
     private Integer id;
-    private Integer managedId;
+    private Integer managerId;
     private String action;
     private final LocalDateTime createdAt = LocalDateTime.now();
 }

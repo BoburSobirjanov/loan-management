@@ -1,19 +1,12 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
-
-    <display-name>Spring Demo Application</display-name>
-
     <servlet>
-        <servlet-name>Home</servlet-name>
-        <servlet-class>uz.com.brb.controller.HomeController</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/views/dispatcher-servlet.xml</param-value>
-        </init-param>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Home</servlet-name>
-        <url-pattern>/home/*</url-pattern>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>
+

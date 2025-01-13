@@ -20,13 +20,11 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
-    implementation 'org.postgresql:postgresql:42.7.4'
+    implementation 'org.springframework:spring-webmvc:6.2.1'
     compileOnly 'org.projectlombok:lombok'
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
-    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
+    providedRuntime 'javax.servlet:javax.servlet-api:4.0.1'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
