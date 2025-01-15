@@ -37,4 +37,12 @@ public class TransactionService {
         }
         return "Wrong!";
     }
+
+    public List<Transactions> getByAccountId(int accountId){
+        return transactionsList.stream().filter(transactions -> transactions.getAccountId()==accountId).toList();
+    }
+
+    public List<Transactions> getByTransactionType(String type){
+        return transactionsList.stream().filter(transactions -> transactions.getTransactionType().equals(type)).toList();
+    }
 }

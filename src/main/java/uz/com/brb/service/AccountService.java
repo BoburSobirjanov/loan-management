@@ -39,4 +39,12 @@ public class AccountService {
         }
         return "Wrong!";
     }
+
+    public List<Accounts> getByClientId(int clientId){
+        return accountsList.stream().filter(accounts -> accounts.getClientId()==clientId).toList();
+    }
+
+    public List<Accounts> getByAccountType(String type){
+        return accountsList.stream().filter(accounts -> accounts.getAccountType().equals(type.toUpperCase())).toList();
+    }
 }

@@ -38,4 +38,9 @@ public class UserController {
         boolean deleted = userService.deleteUser(id);
         return deleted ? "UserEntity deleted successfully" : "UserEntity not found";
     }
+
+    @GetMapping("/username")
+    public UserEntity getByUsername(@RequestParam String username){
+        return userService.getByUsername(username);
+    }
 }

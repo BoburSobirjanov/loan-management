@@ -38,4 +38,8 @@ public class AuditService {
         }
         return "Wrong!";
     }
+
+    public List<Audits> getByManagerId(int managerId){
+        return auditsList.stream().filter(audits -> audits.getManagerId()==managerId).toList();
+    }
 }

@@ -34,4 +34,9 @@ public class AuditController {
         auditService.update(id, audits);
         return "Updated!";
     }
+
+    @GetMapping("/manager-id/{id}")
+    public List<Audits> getByManagerId(@PathVariable int id){
+        return auditService.getByManagerId(id);
+    }
 }

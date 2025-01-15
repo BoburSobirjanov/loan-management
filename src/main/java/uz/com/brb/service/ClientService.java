@@ -43,4 +43,12 @@ public class ClientService {
         }
         return "Wrong!";
     }
+
+    public Clients getByEmail(String email){
+        return clients.stream().filter(client -> client.getEmail().equals(email)).findFirst().orElse(null);
+    }
+
+    public Clients getByNumber(String number){
+        return clients.stream().filter(client -> client.getNumber().equals(number)).findFirst().orElse(null);
+    }
 }
