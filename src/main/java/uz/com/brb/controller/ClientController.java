@@ -37,4 +37,14 @@ public class ClientController {
         clientService.update(id, clients);
         return "Updated!";
     }
+
+    @GetMapping("/email")
+    public Clients getByEmail(@RequestParam String email){
+        return clientService.getByEmail(email);
+    }
+
+    @GetMapping("/number")
+    public Clients getByNumber(@RequestParam String number){
+        return clientService.getByNumber(number);
+    }
 }

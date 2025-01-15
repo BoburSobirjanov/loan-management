@@ -36,4 +36,14 @@ public class TransactionController {
 
     @GetMapping
     public List<Transactions> getAll(){return transactionService.getAll();}
+
+    @GetMapping("/account-id/{accId}")
+    public List<Transactions> getByAccId(@PathVariable int accId){
+        return transactionService.getByAccountId(accId);
+    }
+
+    @GetMapping("/type")
+    public List<Transactions> getByType(@RequestParam String type){
+        return transactionService.getByTransactionType(type);
+    }
 }

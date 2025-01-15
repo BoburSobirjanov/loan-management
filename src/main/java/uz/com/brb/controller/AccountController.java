@@ -34,4 +34,14 @@ public class AccountController {
         accountService.update(id, accounts);
         return "Updated!";
     }
+
+    @GetMapping("/client-id/{id}")
+    public List<Accounts> getByClientId(@PathVariable int id){
+        return accountService.getByClientId(id);
+    }
+
+    @GetMapping("/type")
+    public List<Accounts> getByType(@RequestParam String type){
+        return accountService.getByAccountType(type);
+    }
 }

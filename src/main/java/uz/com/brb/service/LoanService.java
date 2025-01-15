@@ -38,4 +38,12 @@ public class LoanService {
         }
         return "Not found!";
     }
+
+    public List<Loans> getByStatus(String status){
+        return loans.stream().filter(loans1 -> loans1.getStatus().equals(status)).toList();
+    }
+
+    public List<Loans> getByClientId(int clientId){
+        return loans.stream().filter(loans1 -> loans1.getClientId()==clientId).toList();
+    }
 }

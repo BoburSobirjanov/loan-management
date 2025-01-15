@@ -36,4 +36,14 @@ public class LoansController {
         loanService.update(id, loans);
         return "Updated!";
     }
+
+    @GetMapping("/status")
+    public List<Loans> getByStatus(@RequestParam String status){
+        return loanService.getByStatus(status);
+    }
+
+    @GetMapping("/client-id/{clId}")
+    public List<Loans> getByClientId(@PathVariable int clId){
+        return loanService.getByClientId(clId);
+    }
 }

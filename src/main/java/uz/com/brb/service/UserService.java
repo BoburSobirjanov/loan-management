@@ -52,4 +52,8 @@ public class UserService {
     public boolean deleteUser(int id) {
        return users.removeIf(user -> user.getId() == id);
     }
+
+    public UserEntity getByUsername(String username){
+        return users.stream().filter(user -> user.getUsername().equals(username)).findFirst().orElse(null);
+    }
 }
